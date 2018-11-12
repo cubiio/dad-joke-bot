@@ -17,6 +17,9 @@ python3 -m venv env
 # activate the virtual env
 source env/bin/activate
 
+# Get a Dad joke via CLI
+python ./manage.py [-j | --joke]
+
 # install dependencies
 poetry install
 ```
