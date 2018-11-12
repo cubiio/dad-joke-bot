@@ -1,5 +1,9 @@
 # dad-joke-bot
 
+## tl;dr
+
+Dad Jokes Twitter Bot - check it out [here](https://twitter.com/tata_jokes).
+
 ## Table of Contents
 
 - [Install](#install)
@@ -17,9 +21,6 @@ python3 -m venv env
 # activate the virtual env
 source env/bin/activate
 
-# Get a Dad joke via CLI
-python ./manage.py [-j | --joke]
-
 # install dependencies
 poetry install
 ```
@@ -31,6 +32,12 @@ poetry install
 ```bash
 # activate the virtual env
 source env/bin/activate
+
+# Get a Dad joke via CLI
+python ./manage.py [-j | --joke]
+
+# Post a Dad joke to Twitter via CLI
+python ./manage.py [-t | --twitter]
 
 # Use 'deactivate' to exit the virtual env
 ```
