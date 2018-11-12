@@ -6,11 +6,22 @@ Dad Jokes Twitter Bot - check it out [here](https://twitter.com/tata_jokes).
 
 ## Table of Contents
 
+- [Description](#description)
 - [Install](#install)
 - [Develop](#develop)
   - [How to run](#how-to-run)
   - [Code style and formatting](#code-style-and-formatting)
   - [Tests](#tests)
+
+## Description
+
+Twitter Dad joke bot which uses the [icanhazdadjoke.com](https://icanhazdadjoke.com/api) API.
+
+Built with:
+
+- Python
+- Serverless
+- AWS Lambda
 
 ## Install
 
@@ -24,6 +35,8 @@ source env/bin/activate
 # install dependencies
 pip install -r requirements-dev.txt
 ```
+
+Convert `.env.template` to `.env` and add Twitter developer credentials.
 
 ## Develop
 
