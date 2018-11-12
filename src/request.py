@@ -8,9 +8,10 @@ DAD_JOKE_URL = 'https://icanhazdadjoke.com/'
 def get_dad_joke():
     """Makes requests to the Dad joke API"""
     headers = {
-        "Accept": "application/json",
-        # TODO(sam) add user agent info
-        "User-Agent": ""
+        "Accept":
+        "application/json",
+        "user-agent":
+        "Twitter Bot - GitHub repo https://github.com/cubiio/dad-joke-bot"
     }
     try:
         request = requests.get(DAD_JOKE_URL, headers=headers)
