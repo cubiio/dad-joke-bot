@@ -111,3 +111,6 @@ dmypy.json
 
 # editor
 .vscode
+
+# serverless
+.serverless

@@ -22,7 +22,7 @@ python3 -m venv env
 source env/bin/activate
 
 # install dependencies
-poetry install
+pip install -r requirements-dev.txt
 ```
 
 ## Develop
@@ -52,16 +52,16 @@ Ensure the source env/bin/activate is activated with `source env/bin/activate`.
 
 To run tests:
 
-`py.test` or with verbosity `py.test -vv`.
+`pytest` or with verbosity `pytest -vv`.
 
 Test coverage:
 
-On the command line run `py.test --cov`
+On the command line run `pytest --cov`
 
 To generate html coverage report run
 
 ```bash
-py.test --cov-report html --cov --verbose
+pytest --cov-report html --cov --verbose
 ```
 
 and then `open htmlcov/index.html` to open in the browser.

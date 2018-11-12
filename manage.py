@@ -1,7 +1,7 @@
 import argparse
 
-from src.request import get_dad_joke
-from src.twitter_bot import post_to_twitter
+from handler import _get_dad_joke
+from handler import post_to_twitter
 
 
 def cli():
@@ -19,7 +19,7 @@ def cli():
     args = parser.parse_args()
 
     if args.joke:
-        response = get_dad_joke()
+        response = _get_dad_joke()
         joke = response.get('joke')
         print(f'\n{joke}\n')
     if args.twitter:
