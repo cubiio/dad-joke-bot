@@ -23,6 +23,9 @@ def post_to_twitter():
     """Posts to the Dad Joke Twitter bot"""
     response = get_dad_joke()
     if response.get('status') == 200:
-        dad_joke = response.get('joke')
-        api.PostUpdate(dad_joke)
-        return response
+        try:
+            dad_joke = response.get('joke')
+            api.PostUpdate(dad_joke)
+            return response
+        except Exception as ex:
+            raise Exception(f"Unsuccessful post attempt to Twitter: {ex}")
