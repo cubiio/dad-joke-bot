@@ -52,6 +52,12 @@ python ./manage.py [-j | --joke]
 # Post a Dad joke to Twitter via CLI
 python ./manage.py [-t | --twitter]
 
+# Deploy
+serverless deploy -v
+
+# Invoke the Twitter bot function
+serverless invoke -f post_to_twitter -l
+
 # Use 'deactivate' to exit the virtual env
 ```
 
