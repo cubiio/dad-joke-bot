@@ -40,6 +40,15 @@ Convert `.env.template` to `.env` and add Twitter developer credentials.
 
 ## Develop
 
+### AWS CLI credentials
+
+Set-up a profile with id and access key in `~/.aws/credentials` with the same name as `profile` in the `serverless.yml` config file or source the id and key directly.
+
+```bash
+export AWS_ACCESS_KEY_ID=<your-key-here>
+export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
+```
+
 ### How to
 
 ```bash

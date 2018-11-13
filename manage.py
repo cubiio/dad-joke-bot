@@ -1,7 +1,7 @@
 import argparse
 
-from handler import _get_dad_joke
-from handler import post_to_twitter
+from src.joke_request import get_dad_joke
+from src.twitter_bot import twitter_bot_post_joke
 
 
 def cli():
@@ -19,13 +19,16 @@ def cli():
     args = parser.parse_args()
 
     if args.joke:
-        response = _get_dad_joke()
+        response = get_dad_joke()
         joke = response.get('joke')
+        print(response)
         print(f'\n{joke}\n')
     if args.twitter:
-        response = post_to_twitter()
-        joke = response.get('joke')
-        print(f'\nPosted Dad joke to Twitter:\n{joke}\n')
+        dad_joke_api_response = get_dad_joke()
+        dad_joke = dad_joke_api_response.get('joke')
+        twitter_request = twitter_bot_post_joke(dad_joke)
+        print(f'\nPosted Dad joke to Twitter:\n{dad_joke}\n')
+        print(f'\nTwitter response:\n{twitter_request}\n')
 
 
 if __name__ == "__main__":
