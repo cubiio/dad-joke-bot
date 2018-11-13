@@ -3,7 +3,7 @@ service: dad-joke-bot
 provider:
   name: aws
   runtime: python3.6
-  profile: sam
+  profile: sam__dev__lambda
   stage: production
 
 package:
