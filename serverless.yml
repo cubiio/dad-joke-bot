@@ -14,7 +14,7 @@ functions:
   post_to_twitter:
     handler: handler.post_to_twitter
     events:
-      - schedule: rate(6 hours)
+      - schedule: rate(4 hours)
 
 plugins:
   - serverless-python-requirements
