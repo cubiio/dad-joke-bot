@@ -2,20 +2,11 @@
 
 ## tl;dr
 
-Dad Jokes Twitter Bot - check it out [here](https://twitter.com/tata_jokes).
-
-## Table of Contents
-
-- [Description](#description)
-- [Install](#install)
-- [Develop](#develop)
-  - [How to run](#how-to-run)
-  - [Code style and formatting](#code-style-and-formatting)
-  - [Tests](#tests)
+A Dad Jokes Bot, available on Twitter - check it out [here](https://twitter.com/tata_jokes) and on Telegram.
 
 ## Description
 
-Twitter Dad joke bot which uses the [icanhazdadjoke.com](https://icanhazdadjoke.com/api) API.
+Twitter / Telegram Dad joke bot which uses the [icanhazdadjoke.com](https://icanhazdadjoke.com/api) API.
 
 Built with:
 
@@ -23,7 +14,55 @@ Built with:
 - Serverless
 - AWS Lambda
 
-## Install
+## Set-up
+
+### AWS
+
+Set-up an AWS account and a profile with appropriate Lambda IAM permissions.
+
+Add the profile id and access key in `~/.aws/credentials` with the same name as `profile` in the `serverless.yml` config file.
+
+Or source the id and key directly like this in your terminal:
+
+```bash
+export AWS_ACCESS_KEY_ID=<your-key-here>
+export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
+```
+
+### Twitter / Telegram credentials
+
+Follow instructions with Twitter and Telegram to get set-up and then convert the template file `serverless.env.yml` to `serverless.env.yml` and add the credentials.
+
+### Serverless
+
+```bash
+# Install the Serverless Framework
+$ npm install serverless -g
+
+# Install the necessary plugins
+$ npm install
+```
+
+Check [Serverless](https://serverless.com) documentation for more info.
+
+### Serverless Set-up
+
+With the above in place, you should be ready to deploy.
+
+```bash
+# Deploy
+serverless deploy -v
+
+# Using the service endpoint (API Gateway urls) returned in the output, configure the Webhook for the Telegram bot
+$ curl -X POST https://<your_url>.amazonaws.com/production/set_webhook
+
+# To invoke a Lambda function e.g. the Twitter bot function
+serverless invoke -f post_to_twitter -l
+```
+
+## Local set-up
+
+For future development, here's how to get set-up locally:
 
 ```bash
 # create virtual env
@@ -36,60 +75,6 @@ source env/bin/activate
 pip install -r requirements-dev.txt
 ```
 
-Convert `.env.template` to `.env` and add Twitter developer credentials.
-
-## Develop
-
-### AWS CLI credentials
-
-Set-up a profile with id and access key in `~/.aws/credentials` with the same name as `profile` in the `serverless.yml` config file or source the id and key directly.
-
-```bash
-export AWS_ACCESS_KEY_ID=<your-key-here>
-export AWS_SECRET_ACCESS_KEY=<your-secret-key-here>
-```
-
-### How to
-
-```bash
-# activate the virtual env
-source env/bin/activate
-
-# Get a Dad joke via CLI
-python ./manage.py [-j | --joke]
-
-# Post a Dad joke to Twitter via CLI
-python ./manage.py [-t | --twitter]
-
-# Deploy
-serverless deploy -v
-
-# Invoke the Twitter bot function
-serverless invoke -f post_to_twitter -l
-
-# Use 'deactivate' to exit the virtual env
-```
-
-### Code style and formatting
+## Code Style
 
 Python code is styled per flake8 and formatted using [yapf](https://github.com/google/yapf).
-
-### Tests
-
-Ensure the source env/bin/activate is activated with `source env/bin/activate`.
-
-To run tests:
-
-`pytest` or with verbosity `pytest -vv`.
-
-Test coverage:
-
-On the command line run `pytest --cov`
-
-To generate html coverage report run
-
-```bash
-pytest --cov-report html --cov --verbose
-```
-
-and then `open htmlcov/index.html` to open in the browser.

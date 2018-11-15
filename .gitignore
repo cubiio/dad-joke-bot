@@ -114,3 +114,4 @@ dmypy.json
 
 # serverless
 .serverless
+serverless.env.yml
